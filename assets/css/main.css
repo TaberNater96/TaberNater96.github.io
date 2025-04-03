@@ -712,7 +712,7 @@ ul {
 
 /* Custom icons for tech stack */
 .icon-python, .icon-r, .icon-pandas, .icon-numpy, .icon-pytorch, .icon-tensorflow,
-.icon-huggingface, .icon-scikit-learn, .icon-streamlit, .icon-excel, .icon-powerbi {
+.icon-huggingface, .icon-scikit-learn, .icon-excel, .icon-powerbi, .icon-html, .icon-javascript {
     display: inline-block;
     width: 2.5rem;
     height: 2.5rem;
@@ -728,6 +728,14 @@ ul {
 
 .icon-r {
     background-image: url('https://www.r-project.org/logo/Rlogo.svg');
+}
+
+.icon-html {
+   background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg');
+}
+
+.icon-javascript {
+   background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg');
 }
 
 .icon-pandas {
@@ -752,10 +760,6 @@ ul {
 
 .icon-scikit-learn {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg');
-}
-
-.icon-streamlit {
-    background-image: url('https://streamlit.io/images/brand/streamlit-mark-color.svg');
 }
 
 .icon-excel {
@@ -952,6 +956,7 @@ ul {
 .project-image {
    overflow: hidden;
    height: 250px;
+   position: relative;
 }
 
 .project-image img {
@@ -959,6 +964,30 @@ ul {
    height: 100%;
    object-fit: cover;
    transition: transform 0.5s ease;
+}
+
+.atmoseer-card .project-image img {
+   object-position: center 50%;
+}
+
+.robi-card .project-image img {
+   object-position: center 35%;
+}
+
+.portfolio-card .project-image img {
+   object-position: 100% 65%;
+}
+
+.tow-card .project-image {
+   background-color: rgb(4, 4, 4);
+}
+
+.tow-card .project-image img {
+   object-position: center;
+   object-fit: contain;
+   height: 115%;
+   width: 115%;
+   padding: 5px 5px 35px 5px;
 }
 
 .project-card:hover .project-image img {

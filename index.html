@@ -75,6 +75,18 @@
                     </a>
                 </div>
                 <div class="skill-item">
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" title="JavaScript Documentation">
+                        <span class="icon-javascript"></span>
+                        <span>JavaScript</span>
+                    </a>
+                </div>
+                <div class="skill-item">
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" title="HTML Documentation">
+                        <span class="icon-html"></span>
+                        <span>HTML/CSS</span>
+                    </a>
+                </div>
+                <div class="skill-item">
                     <a href="https://pytorch.org/docs/stable/index.html" target="_blank" title="PyTorch Documentation">
                         <span class="devicon-pytorch-original colored"></span>
                         <span>PyTorch</span>
@@ -108,12 +120,6 @@
                     <a href="https://pandas.pydata.org" target="_blank" title="Pandas Documentation">
                         <span class="devicon-pandas-plain colored"></span>
                         <span>Pandas</span>
-                    </a>
-                </div>
-                <div class="skill-item">
-                    <a href="https://streamlit.io/" target="_blank" title="Streamlit Documentation">
-                        <span class="icon-streamlit"></span>
-                        <span>Streamlit</span>
                     </a>
                 </div>
                 <div class="skill-item">
@@ -215,7 +221,7 @@
                             <span class="node-year">2025</span>
                             <h3>Academia To Actions</h3>
                             <p>
-                                Graduated with a 4.0 GPA, now holding 2 degrees and all the knowledge that comes with them. As well as thousands upon thousands of hours of doing programming, data analysis, machine learning, and problem solving. Now very eager to apply these skills to a goal I am passionate about.
+                                Graduated with a 4.0 GPA, now holding 2 degrees and all the knowledge that comes with them. As well as thousands upon thousands of hours of programming, data analysis, machine learning, and problem solving. Now very eager to apply these skills to a goal I am passionate about.
                             </p>
                         </div>
                     </div>
@@ -229,14 +235,22 @@
                 <h2>Projects</h2>
                 <div class="projects-grid">
                     <!-- AtmoSeer -->
-                    <div class="project-card">
+                    <div class="project-card atmoseer-card">
                         <a href="pages/projects.html#atmoseer" class="project-card-link">
                             <div class="project-image">
                                 <img src="assets/images/atmosphere.jpg" alt="AtmoSeer Project">
                             </div>
                             <div class="project-content">
                                 <h3>AtmoSeer</h3>
-                                <p>A full stack data engineering, data science, and machine learning pipeline that gathered greenhouse gas data from NOAA and used a BiLSTM to predict future emissions, deployed to Streamlit Cloud with a complete user interface.</p>
+                                <p>
+                                    Constructed an extremely extensive full-stack data science pipeline to predict and display future atmospheric gas 
+                                    emissions using a Bidirectional Long Short-Term Memory (BiLSTM), a type of Recursive Neural Network (RNN), as a time 
+                                    series analysis model that was deployed on a fully interactable website built from scratch. Millions of raw data points 
+                                    were scraped from NOAA GML and NASA MODIS, then cleaned, transformed, and loaded into a PostgreSQL database for further analysis. 
+                                </p>
+                                <p>
+                                    <a href="https://atmoseer-4dxngmwrqojjadwhcg3yps.streamlit.app/" target="_blank" class="btn-outline">Visit Website</a> (Please Allow 30 seconds to wake up the server)
+                                </p>
                             </div>
                         </a>
                         <div class="project-links">
@@ -245,14 +259,20 @@
                     </div>
                     
                     <!-- RoBi -->
-                    <div class="project-card">
+                    <div class="project-card robi-card">
                         <a href="pages/projects.html#robi" class="project-card-link">
                             <div class="project-image">
                                 <img src="assets/images/embedding-martix.jpeg" alt="RoBi Project">
                             </div>
                             <div class="project-content">
                                 <h3>RoBi</h3>
-                                <p>A hybrid sentiment analysis network using RoBERTa and BiLSTM with a novel sliding window approach to bypass max sequence length limitations of modern transformers. Features Bayesian Optimization with a Matérn kernel for hyperparameter tuning.</p>
+                                <p>
+                                    Developed a hybrid sentiment analysis network using RoBERTa and BiLSTM. The architecture consisted of a novel sliding window approach to 
+                                    bypass max sequence lengths of modern transformers. Essentially allowing the BiLSTM to learn from an infinite number of tokens using RoBERTa’s 
+                                    embedding matrix. A Bayesian Optimization algorithm was developed as a wrapper for RoBi’s architecture, acting as a hyperparameter tuner. This 
+                                    algorithm used a Matérn kernel for Gaussian Regression to greatly improve RoBi’s accuracy by leveraging probability to search a hyperparameter 
+                                    space based on prior trial results.
+                                </p>
                             </div>
                         </a>
                         <div class="project-links">
@@ -261,7 +281,7 @@
                     </div>
                     
                     <!-- Portfolio Website -->
-                    <div class="project-card">
+                    <div class="project-card portfolio-card">
                         <a href="pages/projects.html#portfolio" class="project-card-link">
                             <div class="project-image">
                                 <img src="assets/images/data-science.jpg" alt="Portfolio Website">
@@ -277,14 +297,17 @@
                     </div>
                     
                     <!-- NFL Tackle Opportunity Window -->
-                    <div class="project-card">
+                    <div class="project-card tow-card">
                         <a href="pages/projects.html#nfl-analysis" class="project-card-link">
                             <div class="project-image">
-                                <img src="assets/images/big-data-bowl.png" alt="NFL Tackle Opportunity Window">
+                                <img src="assets/images/network_circle.jpg" alt="NFL Tackle Opportunity Window">
                             </div>
                             <div class="project-content">
                                 <h3>Tackle Opportunity Window</h3>
-                                <p>A novel metric with a feed-forward neural network and Plotly animation that quantifies tackle probability based on orientation and proximity. Received honorable mention in the 2024 NFL "Big Data Bowl" and was among the top 5% of submissions.</p>
+                                <p>
+                                    A novel metric with a feed-forward neural network and Plotly animation that quantifies tackle probability based on orientation and proximity. Received honorable mention in the 2024 NFL "Big Data Bowl" and was among the top 5% of submissions.
+                                </p>
+                                <a href="https://www.kaggle.com/code/godragons6/tackle-opportunity-window" target="_blank"><img alt="Kaggle" title="View Competition Submission" src="https://kaggle.com/static/images/open-in-kaggle.svg"></a>
                             </div>
                         </a>
                         <div class="project-links">
@@ -300,10 +323,8 @@
         <!-- Sidebar Navigation -->
         <aside class="sidebar-nav">
             <ul>
-                <li><a href="#military" data-tooltip="Military Service"></a></li>
-                <li><a href="#physics" data-tooltip="Physics Degree"></a></li>
-                <li><a href="#data-science" data-tooltip="Data Science"></a></li>
-                <li><a href="#future" data-tooltip="Future Goals"></a></li>
+                <li><a href="#timeline-overview" data-tooltip="Timeline"></a></li>
+                <li><a href="#projects" data-tooltip="Projects"></a></li>
             </ul>
         </aside>
     </div>
