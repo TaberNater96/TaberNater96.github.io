@@ -1033,6 +1033,19 @@ ul {
    color: inherit;
 }
 
+.atmoseer-card .project-content .btn-outline {
+   background-color: var(--dark-color);
+   color: var(--primary-color);
+   border: 1px solid white;
+   border-radius: 20px;
+}
+
+.atmoseer-card .project-content .btn-outline:hover {
+   background-color: white;
+   color: var(--primary-color);
+   border: 1px solid var(--dark-color);
+}
+
 /* GitHub Links */
 .project-card .btn-outline {
    background-color: black;
@@ -1048,6 +1061,76 @@ ul {
 .project-card-link .project-links a {
    position: relative;
    z-index: 2;
+}
+
+/* ===== PSYOP SECTION ===== */
+.psyop-section {
+   padding: var(--spacing-xl) 0;
+   text-align: center;
+   position: relative;
+}
+
+/* Row layout */
+.psyop-row {
+   display: flex;
+   align-items: flex-start;
+   margin-bottom: 30px;
+   gap: 50px;
+}
+
+/* Image cell */
+.psyop-image-cell {
+   flex: 1;
+   display: flex;
+   justify-content: flex-end;
+   max-width: 35%;
+}
+
+/* Text cell */
+.psyop-text-cell {
+   flex: 2;
+   text-align: left;
+}
+
+/* Image container */
+.image-container {
+   display: inline-block;
+   border: 3px solid rgba(8, 185, 225, 0.798);
+   border-radius: 12px;
+   box-shadow: var(--box-shadow);
+   line-height: 0;
+   overflow: hidden;
+   width: 100%;
+   max-width: 550px;
+}
+
+.psyop-image, .psyop-logo {
+   width: 100%;
+   display: block;
+   max-width: 100%;
+}
+
+/* Card styling */
+.psyop-card {
+   background: linear-gradient(135deg, var(--primary-color), white);
+   border-radius: 12px;
+   padding: 30px;
+   box-shadow: var(--box-shadow);
+   transition: var(--transition);
+   height: 100%;
+}
+
+.psyop-card h3 {
+   color: var(--dark-color);
+   margin-bottom: 20px;
+   font-size: 1.6rem;
+   text-align: center;
+}
+
+.psyop-card p {
+   color: var(--dark-color);
+   line-height: 1.8;
+   font-size: 1rem;
 }
 
 /* RESPONSIVE STYLES */
@@ -1102,6 +1185,35 @@ ul {
    .projects-grid {
       grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 992px) {
+   .psyop-row {
+       flex-direction: column;
+       align-items: center;
+   }
+   
+   .psyop-image-cell {
+       max-width: 70%;
+       justify-content: center;
+       margin-bottom: 20px;
+   }
+   
+   .psyop-text-cell {
+       width: 100%;
+   }
+}
+
+@media (max-width: 768px) {
+   .psyop-image-cell {
+       max-width: 80%;
+   }
+}
+
+@media (max-width: 576px) {
+   .psyop-image-cell {
+       max-width: 100%;
+   }
 }
 
 /* ===== RESUME PAGE STYLES ===== */
