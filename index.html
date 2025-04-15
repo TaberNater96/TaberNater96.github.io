@@ -17,12 +17,12 @@
     <header class="site-header">
         <div class="container">
             <nav class="main-nav">
-                <a href="index.html" class="logo">Home</a>
                 <ul class="nav-menu">
-                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#pages/projects">Projects</a></li>
                     <li><a href="pages/resume.html">Resume</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#pages/about">About</a></li>
+                    <li><a href="#pages/contact">Contact</a></li>
                 </ul>
                 <button class="nav-toggle">
                     <span class="hamburger"></span>
@@ -138,10 +138,29 @@
         </div>
     </section>
 
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar-nav">
+        <div class="sidebar-container">
+            <h3 class="sidebar-title">Home Page Navigation</h3>
+            <ul>
+                <li><a href="#" class="active" data-section="intro"><i class="fas fa-home"></i> Intro</a></li>
+                <li><a href="#timeline" data-section="timeline"><i class="fas fa-history"></i> Timeline</a></li>
+                <li><a href="#projects" data-section="projects"><i class="fas fa-code"></i> Projects</a></li>
+                <li><a href="#psyop" data-section="psyop"><i class="fas fa-brain"></i> PSYOP</a></li>
+            </ul>
+            <div class="sidebar-social">
+                <a href="https://github.com/TaberNater96" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/elijah-taber-17377b2a9/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:boxcar2taber@yahoo.com" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </aside>
+
     <!-- Fixed Gradient Background For Main Body -->
     <div class="content-wrapper">
+
         <!-- Timeline Overview -->
-        <section class="timeline-overview">
+        <section id="timeline" class="timeline-overview">
             <div class="container">
                 <h2>Timeline</h2>
                 <div class="enhanced-timeline">
@@ -384,15 +403,6 @@
         </section>
 
         <!-- Any other sections go here -->
-
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar-nav">
-            <ul>
-                <li><a href="#timeline-overview" data-tooltip="Timeline"></a></li>
-                <li><a href="#projects" data-tooltip="Projects"></a></li>
-                <li><a href="#psyop" data-tooltip="PSYOP"></a></li>
-            </ul>
-        </aside>
     </div>
 
     <!-- Footer -->
