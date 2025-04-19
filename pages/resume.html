@@ -13,13 +13,30 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 </head>
-<body>
+<style>
+    .resume-page .site-header {
+        left: 0;
+        width: 100%;
+    }
+    
+    .resume-page .resume-section {
+        margin-left: 0;
+        width: 100%;
+        padding-top: calc(var(--header-height) + 40px);
+    }
+    
+    .resume-page .site-footer {
+        margin-left: 0;
+        width: 100%;
+    }
+</style>
+<body class="resume-page">
     <!-- Navigation Bar -->
     <header class="site-header">
         <div class="container">
             <nav class="main-nav">
-                <a href="../index.html" class="logo">Home</a>
                 <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
                     <li><a href="../index.html#projects">Projects</a></li>
                     <li><a href="resume.html">Resume</a></li>
                     <li><a href="../index.html#about">About</a></li>
