@@ -1427,9 +1427,8 @@ ul {
 }
 
 .contact-content {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   gap: 40px;
+   display: block;
+   margin: 0 auto;
 }
 
 .contact-info {
@@ -1437,6 +1436,9 @@ ul {
    border-radius: 12px;
    padding: 30px;
    box-shadow: var(--box-shadow);
+   margin: 0 auto;
+   max-width: 600px;
+   margin-bottom: 40px;
 }
 
 .contact-info h3 {
@@ -1461,6 +1463,11 @@ ul {
    text-align: center;
 }
 
+.contact-item p:first-child {
+   font-weight: 700;
+   margin-bottom: 5px;
+}
+
 .contact-item a {
    color: var(--dark-color);
    transition: var(--transition);
@@ -1468,71 +1475,6 @@ ul {
 
 .contact-item a:hover {
    color: var(--accent-color);
-}
-
-.contact-form {
-   background: linear-gradient(135deg, var(--primary-color), white);
-   border-radius: 12px;
-   padding: 30px;
-   box-shadow: var(--box-shadow);
-}
-
-.contact-form h3 {
-   color: var(--dark-color);
-   margin-bottom: 25px;
-   font-size: 1.8rem;
-   text-align: center;
-}
-
-.form-group {
-   margin-bottom: 20px;
-}
-
-.form-group label {
-   display: block;
-   margin-bottom: 8px;
-   font-weight: 600;
-   color: var(--dark-color);
-}
-
-.form-control {
-   width: 100%;
-   padding: 12px;
-   border: 1px solid rgba(0, 0, 0, 0.1);
-   border-radius: var(--border-radius);
-   font-family: var(--body-font);
-   font-size: 1rem;
-   transition: var(--transition);
-}
-
-.form-control:focus {
-   border-color: var(--primary-color);
-   outline: none;
-   box-shadow: 0 0 0 3px rgba(5, 175, 194, 0.2);
-}
-
-textarea.form-control {
-   min-height: 150px;
-   resize: vertical;
-}
-
-.btn-submit {
-   display: inline-block;
-   background-color: var(--dark-color);
-   color: var(--light-color);
-   border: none;
-   padding: 12px 25px;
-   border-radius: var(--border-radius);
-   font-family: var(--body-font);
-   font-size: 1rem;
-   font-weight: 600;
-   cursor: pointer;
-   transition: var(--transition);
-}
-
-.btn-submit:hover {
-   background-color: var(--accent-color);
-   transform: translateY(-2px);
 }
 
 .social-box {
@@ -1582,34 +1524,7 @@ textarea.form-control {
    border: none;
 }
 
-.contact-success {
-   padding: 15px;
-   background-color: rgba(76, 175, 80, 0.1);
-   border: 1px solid #4CAF50;
-   border-radius: var(--border-radius);
-   color: #4CAF50;
-   margin-bottom: 20px;
-   display: none;
-}
-
-.contact-error {
-   padding: 15px;
-   background-color: rgba(244, 67, 54, 0.1);
-   border: 1px solid #F44336;
-   border-radius: var(--border-radius);
-   color: #F44336;
-   margin-bottom: 20px;
-   display: none;
-}
-
 /* Responsive styles for contact page */
-@media (max-width: 992px) {
-   .contact-content {
-       grid-template-columns: 1fr;
-       gap: 30px;
-   }
-}
-
 @media (max-width: 768px) {
    .contact-title {
        font-size: 3.5rem;
