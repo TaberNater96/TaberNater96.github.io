@@ -157,8 +157,8 @@ ul {
    background-size: cover;
    color: var(--light-color);
    overflow: hidden;
-   margin-left: 250px; /* Change padding-left to margin-left */
-   width: calc(100% - 250px); /* Add this to ensure proper width */
+   margin-left: 250px; 
+   width: calc(100% - 250px); /
 }
 
 .content-wrapper h2 {
@@ -178,7 +178,7 @@ ul {
    top: 0;
    left: 250px;
    width: calc(100% - 250px);
-   height: var(--header-height, 61px); /* Explicitly set height to match variable */
+   height: var(--header-height, 61px); 
    background-color: rgb(0, 0, 0);
    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
    z-index: 1000;
@@ -435,7 +435,7 @@ ul {
 .sidebar-nav {
    position: fixed;
    top: 0;
-   padding-top: var(--header-height); /* Use header height variable */
+   padding-top: var(--header-height); 
    left: 0;
    width: 250px;
    height: 100vh;
@@ -519,7 +519,7 @@ ul {
 }
 
 .sidebar-social a i {
-   font-size: 16px; /* Control icon size */
+   font-size: 16px; 
    display: flex;
    justify-content: center;
    align-items: center;
@@ -740,7 +740,6 @@ ul {
 
 /* ===== ANIMATIONS ===== */
 
-/* Animation for skill items */
 @keyframes fadeIn {
    from {
       opacity: 0;
@@ -756,13 +755,11 @@ ul {
    animation-delay: calc(var(--animation-order) * 0.1s);
 }
 
-/* Custom tech icon colors for unified look */
 .tech-icon {
    font-size: 2.5rem;
    color: var(--primary-color);
 }
 
-/* Custom icons for tech stack */
 .icon-python, .icon-r, .icon-pandas, .icon-numpy, .icon-pytorch, .icon-tensorflow,
 .icon-huggingface, .icon-scikit-learn, .icon-excel, .icon-powerbi, .icon-html, .icon-javascript {
     display: inline-block;
@@ -822,7 +819,6 @@ ul {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg');
 }
 
-/* Override for SQL to make it teal colored like other icons */
 .hero-banner .skill-item .fas {
     color: var(--primary-color);
     font-size: 2.5rem;
@@ -852,7 +848,6 @@ ul {
    margin-bottom: var(--spacing-xs);
 }
 
-/* Style for skill item links */
 .hero-banner .skill-item a {
    display: flex;
    flex-direction: column;
@@ -1285,7 +1280,7 @@ ul {
 
 @media (max-width: 992px) {
    :root {
-      --header-height: 50px; /* Potentially smaller header on medium screens */
+      --header-height: 50px; 
    }
    
    .hero-banner, .content-wrapper {
@@ -1328,7 +1323,7 @@ ul {
 .resume-section {
    background: var(--bg-gradient);
    padding: var(--spacing-xl) 0;
-   min-height: calc(100vh - 200px); /* Account for header and footer */
+   min-height: calc(100vh - 200px); 
 }
 
 .resume-container {
@@ -1356,7 +1351,7 @@ ul {
 
 .resume-pdf {
    width: 100%;
-   height: 1000px; /* Adjust height as needed */
+   height: 1000px;
    border: none;
 }
 
