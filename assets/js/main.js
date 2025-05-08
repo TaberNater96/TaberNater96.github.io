@@ -146,6 +146,34 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Update active link based on scroll position for projects page
     if(document.querySelector('.projects-page')) {
+        // Handle initial hash in URL (when coming from project links on home page)
+        if(window.location.hash) {
+            const hash = window.location.hash;
+            const projectId = hash.substring(1); // Remove the # character
+            
+            // Set active state on the correct sidebar link
+            projectsLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === hash) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Scroll to the element with a slight delay to ensure page is loaded
+            setTimeout(() => {
+                const targetElement = document.querySelector(hash);
+                if(targetElement) {
+                    const headerHeight = document.querySelector('.site-header').offsetHeight;
+                    const offset = targetElement.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: offset,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 300);
+        }
+    
         window.addEventListener('scroll', function() {
             const scrollPosition = window.scrollY;
             const headerHeight = document.querySelector('.site-header').offsetHeight;
