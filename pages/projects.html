@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elijah Taber - Projects</title>
+    <link rel="stylesheet" href="../assets/css/normalize.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+</head>
+<body class="projects-page">
+    <!-- Navigation Bar -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="nav-toggle">
+                    <span class="hamburger"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <aside class="projects-sidebar">
+        <div class="projects-sidebar-container">
+            <h3 class="projects-sidebar-title">Projects</h3>
+            <ul>
+                <li><a href="#atmoseer" class="active" data-section="atmoseer"><i class="fas fa-cloud"></i> AtmoSeer</a></li>
+                <li><a href="#robi" data-section="robi"><i class="fas fa-robot"></i> RoBi</a></li>
+                <li><a href="#portfolio" data-section="portfolio"><i class="fas fa-laptop-code"></i> Portfolio Site</a></li>
+                <li><a href="#nfl-analysis" data-section="nfl-analysis"><i class="fas fa-football-ball"></i> NFL Analysis</a></li>
+            </ul>
+            <div class="projects-sidebar-social">
+                <a href="https://github.com/TaberNater96" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/elijah-taber-17377b2a9/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:boxcar2taber@yahoo.com" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <h2 class="projects-title">Projects</h2>
+            
+            <!-- AtmoSeer Project -->
+            <div id="atmoseer" class="project-detail">
+                <h3>AtmoSeer</h3>
+                <p>
+                    Constructed an extremely extensive full-stack data science pipeline to predict and display future atmospheric gas 
+                    emissions using a Bidirectional Long Short-Term Memory (BiLSTM), a type of Recursive Neural Network (RNN), as a time 
+                    series analysis model that was deployed on a fully interactable website built from scratch. Millions of raw data points 
+                    were scraped from NOAA GML and NASA MODIS, then cleaned, transformed, and loaded into a PostgreSQL database for further analysis.
+                </p>
+            </div>
+            
+            <!-- RoBi Project -->
+            <div id="robi" class="project-detail">
+                <h3>RoBi</h3>
+                <p>
+                    Developed a hybrid sentiment analysis network using RoBERTa and BiLSTM. The architecture consisted of a novel sliding window approach to 
+                    bypass max sequence lengths of modern transformers. Essentially allowing the BiLSTM to learn from an infinite number of tokens using RoBERTa's 
+                    embedding matrix. A Bayesian Optimization algorithm was developed as a wrapper for RoBi's architecture, acting as a hyperparameter tuner. This 
+                    algorithm used a Matérn kernel for Gaussian Regression to greatly improve RoBi's accuracy by leveraging probability to search a hyperparameter 
+                    space based on prior trial results.
+                </p>
+            </div>
+            
+            <!-- Portfolio Website Project -->
+            <div id="portfolio" class="project-detail">
+                <h3>Portfolio Website</h3>
+                <p>
+                    This website itself was built from the ground up using HTML, CSS, and JavaScript. Designed with a focus on clean aesthetics, smooth animations, 
+                    and user-friendly navigation. The layout adapts seamlessly across devices, while interactive elements enhance the user experience without 
+                    sacrificing performance. Both the layout and visual themes were custom-designed from scratch, no templates or frameworks, allowing complete control 
+                    over the structure, styling, and behavior of every component.
+                </p>
+            </div>
+            
+            <!-- NFL Analysis Project -->
+            <div id="nfl-analysis" class="project-detail">
+                <h3>Tackle Opportunity Window</h3>
+                <p>
+                    Designed a completely novel metric, along with a neural network and animation, that quantified the probability of a tackle 
+                    occurring on a specific frame based on orientation and proximity. Received an honorable mention in the 2024 "Big Data Bowl", hosted by the NFL, 
+                    based on the quality of my model and presentation. The notebook submission received more upvotes than 95% of the other competitors, 
+                    consisting of hundreds of professional data scientists around the world.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="../index.html">Elijah Taber</a>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="../index.html#projects">Projects</a></li>
+                        <li><a href="resume.html">Resume</a></li>
+                        <li><a href="../index.html#about">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/TaberNater96"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/elijah-taber-17377b2a9/"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elijah Taber. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

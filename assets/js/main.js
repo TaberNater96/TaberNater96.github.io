@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update on window resize
     window.addEventListener('resize', updateHeaderHeight);
     
+    // Handle sidebar links on home page
     const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
     
     // Function to get the correct offset for each section
@@ -110,6 +111,79 @@ document.addEventListener('DOMContentLoaded', function() {
             activeLink.classList.add('active');
         }
     });
+    
+    // Projects page sidebar navigation
+    const projectsLinks = document.querySelectorAll('.projects-sidebar a');
+    
+    projectsLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all links
+            projectsLinks.forEach(l => l.classList.remove('active'));
+            
+            // Add active class to clicked link
+            this.classList.add('active');
+            
+            // Get the target section
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if(targetElement) {
+                // Get the height of the fixed header
+                const headerHeight = document.querySelector('.site-header').offsetHeight;
+                
+                // Calculate the offset to scroll to the top of the target element
+                const offset = targetElement.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: offset,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Update active link based on scroll position for projects page
+    if(document.querySelector('.projects-page')) {
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            const headerHeight = document.querySelector('.site-header').offsetHeight;
+            
+            // Get all project sections
+            const projectSections = [
+                { el: document.querySelector('#atmoseer'), id: 'atmoseer' },
+                { el: document.querySelector('#robi'), id: 'robi' },
+                { el: document.querySelector('#portfolio'), id: 'portfolio' },
+                { el: document.querySelector('#nfl-analysis'), id: 'nfl-analysis' }
+            ];
+            
+            // Add offsets for comparison
+            projectSections.forEach(section => {
+                if(section.el) {
+                    section.top = section.el.offsetTop - headerHeight - 100;
+                }
+            });
+            
+            // Find current section
+            let currentSection = null;
+            for(let i = projectSections.length - 1; i >= 0; i--) {
+                if(projectSections[i].el && scrollPosition >= projectSections[i].top) {
+                    currentSection = projectSections[i].id;
+                    break;
+                }
+            }
+            
+            // Update active link
+            if(currentSection) {
+                projectsLinks.forEach(link => link.classList.remove('active'));
+                const activeProjectLink = document.querySelector(`.projects-sidebar a[data-section="${currentSection}"]`);
+                if(activeProjectLink) {
+                    activeProjectLink.classList.add('active');
+                }
+            }
+        });
+    }
     
     // Trigger scroll event once on page load to set initial active state
     window.dispatchEvent(new Event('scroll'));
