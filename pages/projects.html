@@ -59,10 +59,67 @@
             <div id="atmoseer" class="project-detail">
                 <h3>AtmoSeer</h3>
                 <p>
-                    Constructed an extremely extensive full-stack data science pipeline to predict and display future atmospheric gas 
-                    emissions using a Bidirectional Long Short-Term Memory (BiLSTM), a type of Recursive Neural Network (RNN), as a time 
-                    series analysis model that was deployed on a fully interactable website built from scratch. Millions of raw data points 
-                    were scraped from NOAA GML and NASA MODIS, then cleaned, transformed, and loaded into a PostgreSQL database for further analysis.
+                    AtmoSeer originates from the objective of applying advanced deep learning techniques to the complex domain of atmospheric science, specifically for forecasting 
+                    greenhouse gas concentrations. This project is a full-stack data science project, using advanced techniques in data engineering, data analysis, and deep learning 
+                    to gather raw greenhouse data from NOAA, train a bidirectional recursive neural network on it, and then deploy it to a fully interactable front-end website that 
+                    allows users to visually see the projection of global greenhouse gases. The aim is to provide a robust tool for understanding the past, and anticipating future 
+                    changes in 4 of the most potent atmospheric gases like Carbon Dioxide (CO2), Methane (CH4), Nitrous Oxide (N2O), and Sulfur Hexafluoride (SF6). By making advanced 
+                    data modeling accessible, AtmoSeer attempts to offer valuable insights for environmental monitoring and research, as there are plenty of tools and sources for 
+                    looking at past atmospheric gas data, but limited on open-sourced time series models. 
+                </p>
+                <br>
+                <p>
+                    This pipeline begins with the acquisition of foundational data, also known as the “Extract” phase in the data engineering pipeline. Atmospheric measurements for the 
+                    four principal greenhouse gases are sourced from the National Oceanic and Atmospheric Administration's Global Monitoring Laboratory (NOAA GML), a standard for high-quality 
+                    atmospheric data gathered around the globe and given freely to the public. To provide ecological context, biomass data is integrated from NASA's Moderate Resolution 
+                    Imaging Spectroradiometer (MODIS) and integrated during the feature engineering phase. 
+                </p>
+                <br>
+                <p>
+                    The first phase of the pipeline is the ETL phase, where the raw data extracted from the source, transformed into a usable format, and loaded into an organized data warehouse 
+                    to analyze and use for training. These transformations include data cleansing (addressing anomalies, interpolating or removing missing values based on domain knowledge), 
+                    normalization (scaling diverse measurements to comparable ranges to prevent numerical dominance by certain features), and structural reformatting. The refined data is then 
+                    loaded into a dual-database system: a local PostgreSQL instance for agile development and intensive data manipulation, and a parallel data store in AWS, likely leveraging 
+                    services such as DynamoDB, for persistence and scalable access.
+                </p>
+                <br>
+                <p>
+                    The first phase is the Extract, Transform, Load (ETL) phase. Raw data, once extracted from the NOAA GML and NASA MODIS sources, undergoes 
+                    a sequence of programmatic transformations to prepare it for analytical and modeling tasks. These transformations include data cleansing operations, such as the identification 
+                    and handling of anomalous readings, the imputation of missing values using statistical methods or time-series specific techniques, and the removal of erroneous data points. 
+                    Numerical features are subjected to normalization, scaling them to a common range (e.g., 0 to 1 or standard normal distribution) to ensure that features with larger magnitudes 
+                    do not disproportionately influence downstream algorithms. The data is also structurally reformatted, which involves reshaping datasets, aligning temporal resolutions, and 
+                    creating a consistent schema across different sources. Following these transformations, the processed data is loaded into a dual-database architecture: a local PostgreSQL 
+                    database is utilized for development, iterative analysis, and rapid querying, while a secondary data store is established in AWS for backup, persistence, and potentially 
+                    scalable production access.
+                </p>
+                <br>
+                <p>
+                    Once the data is cleaned, transformed, and organized temporally, it is ready to be transformed into a format that an AI algorithm can understand. 
+                    This is commonly referred to as the preprocessing phase. This involves the numerical encoding of any categorical features and a thorough validation of data integrity. A key 
+                    operation here is the partitioning of data into training and validation subsets. To maintain the temporal integrity of the time series and to evaluate the model's predictive 
+                    performance on data it has not seen, these splits are temporally ordered: the validation set comprises data points from a period subsequent to that of the training set. This 
+                    simulates a realistic forecasting scenario and avoids data leakage.
+                </p>
+                <br>
+                <p>
+                    The core predictive engine of AtmoSeer is focused around the deep learning time series analysis model. This is not a monolithic model, but a framework that instantiates four 
+                    specialized models, one for each target greenhouse gas. This gas-specific modeling allows for the capture of unique temporal dynamics and behaviors that are unique to CO2, 
+                    CH4, N2O, and SF6.
+                </p>
+                <br>
+                <p>
+                    The AtmoSeer architecture is built using a Bidirectional Long Short-Term Memory (BiLSTM) network. BiLSTMs are a sophisticated variant of Recurrent Neural Networks (RNNs), adept 
+                    at modeling both long-range dependencies and short-term trends, as there are often complex temporal patterns in sequential data. The "bidirectional" characteristic essentially 
+                    means that input sequences are processed in both chronological and reverse-chronological order. This dual processing allows the model to incorporate information from both past 
+                    and (relative) future time steps when constructing its internal representations, often leading to a richer understanding of the sequence context. While BiLSTMs can be computationally 
+                    demanding, the purpose of this project was to focus on accurately modeling complex atmospheric gas trends, rather than a fast model that is less accurate. This tradeoff is a 
+                    common concern in machine learning operations, where a heavy and computationally expensive model might be more accurate, but it will take longer to perform calculations. With 
+                    this taken into account, logic for GPU acceleration was woven into the core architecture of AtmoSeer, which mitigates computational overhead during training and deployment by 
+                    increasing efficiency by over 100x.
+                </p>
+                <br>
+                <p>
                 </p>
             </div>
             
