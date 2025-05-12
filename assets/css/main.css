@@ -975,6 +975,11 @@ ul {
    text-align: center;
 }
 
+.projects-section .project-detail p {
+   text-align: left;
+   text-indent: 5em;
+}
+
 .projects-grid {
    display: grid;
    grid-template-columns: repeat(2, 1fr);
