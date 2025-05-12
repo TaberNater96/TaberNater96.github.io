@@ -120,6 +120,55 @@
                 </p>
                 <br>
                 <p>
+                    AtmoSeer utilizes an advanced approach to processing environmental data, starting with normalization to make sure there is consistent scaling and stable learning. Like stated 
+                    before, at its core lies a bidirectional processing system that analyzes sequences from both forward and backward directions simultaneously, capturing contextual atmospheric 
+                    data from both past and future time points. This bidirectional architecture can include multiple stacked layers with strategic dropout techniques to prevent overfitting. The 
+                    model's most innovative aspect is its attention mechanism, which functions like a spotlight to focus on the most relevant information while dimming less important signals, 
+                    which creates a more focused representation of the input data. The architecture uses initialization strategies for different components, orthogonal initialization for 
+                    recurrent weights to mitigate gradient issues common in such networks, and Xavier/Glorot uniform initialization for other weight matrices to maintain consistent signal 
+                    strength. This design creates a robust system capable of extracting patterns from complex environmental data while avoiding common training pitfalls.
+                </p>
+                <br>
+                <p>
+                    The model's performance is optimized through Bayesian optimization, a sample-efficient approach for functions that are expensive to evaluate. This process uses a Gaussian 
+                    Process (GP) surrogate model to approximate the objective function by mapping hyperparameters to performance metrics. The system utilizes acquisition functions such as 
+                    Expected Improvement (EI) or Upper Confidence Bound (UCB) to determine which hyperparameter configurations to evaluate next. These functions mathematically balance exploration 
+                    (sampling in high uncertainty regions) and exploitation (sampling in regions predicted to perform well). Each iteration updates the GP model with new hyperparameter-performance 
+                    pairs, progressively refining the surrogate model's accuracy in predicting optimal configurations for parameters like learning rate, LSTM layer count, hidden dimensions, and dropout rates.
+                </p>
+                <br>
+                <p>
+                    Upon completion of the optimization process, the system identifies optimal hyperparameter configurations for each of the four gas detection models based on quantitative 
+                    performance metrics. These configurations, including architectural specifications and learned parameters (weights and biases), are systematically archived in dedicated 
+                    directory structures. The preservation mechanism typically involves PyTorch state dictionary files (.pth or .pt) containing model parameters, alongside JSON files that 
+                    document the complete optimization trajectory, trial outcomes, and final parameter selections.
+                </p>
+                <br>
+                <p>
+                    The trained models are embedded within a Streamlit web application, structured around a main home page and dedicated sub-pages for individual greenhouse gases. Users can 
+                    interact with the application in two primary ways: exploring historical gas concentration data by selecting specific dates or timeframes, and generating forecasts for future 
+                    dates. For forecasting, the application retrieves the appropriate pre-trained AtmoSeer model and processes recent historical data as input. The forecasting mechanism employs 
+                    an autoregressive approach where each prediction becomes input for subsequent predictions, while Monte Carlo sampling with noise injection provides uncertainty bounds around the central forecast.
+                </p>
+                <br>
+                <p>
+                    The application prioritizes accessibility through an intuitive interface with consistent navigation elements and custom styling across all pages. Each gas-specific page 
+                    manages its own model interactions, data processing, and visualization components, presenting users with relevant information through Streamlit's interactive widgets. This
+                    structure allows users to easily switch between different greenhouse gases while maintaining a consistent experience throughout the application.
+                </p>
+                <br>
+                <p>
+                    The application's deployment uses Streamlit Cloud's infrastructure, which directly connects to this project's GitHub repository to maintain synchronization with the latest 
+                    codebase. This deployment strategy eliminates the need for manual server configuration or specialized DevOps knowledge, as Streamlit Cloud automatically handles the hosting 
+                    environment, computational resources, and web serving capabilities required for both the frontend interface and backend model execution. All for free. The platform's integration 
+                    with GitHub enables continuous deployment, where updates pushed to the repository are automatically reflected in the live application, while also providing essential services like 
+                    authentication, HTTPS security, and application scaling without requiring additional infrastructure management from a development team.
+                </p>
+                <br>
+                <p>
+                    AtmoSeer was built to act as a bridge using time-series modeling with accessible environmental data visualization and forecasting. By combining advanced deep learning 
+                    techniques with intuitive user interfaces, this system democratizes access to critical information about atmospheric greenhouse gas concentrations, supporting both scientific 
+                    understanding and public awareness of environmental trends.
                 </p>
             </div>
             
