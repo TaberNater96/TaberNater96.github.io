@@ -1,0 +1,91 @@
+/* Project Content Styling for Tackle Opportunity Window */
+.project-content h1, .project-content h2 {
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    color: var(--dark-color);
+}
+
+.project-content h4 {
+    margin-top: 1.2em;
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+.project-content p {
+    margin-bottom: 1em;
+    line-height: 1.6;
+}
+
+.project-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5em auto;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.project-content .image-container {
+    text-align: center;
+    margin: 2em 0;
+}
+
+.project-content strong {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.project-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.project-content a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.kaggle-button {
+    display: inline-block;
+    margin: 1em 0;
+}
+
+.project-content .player-image {
+    max-width: 800px;
+    height: auto;
+    margin: 1em auto;
+}
+
+.project-content .rankings-image {
+    max-width: 800px;
+    height: auto;
+}
+
+/* Center content */
+.center-content {
+    text-align: center;
+    margin: 1em auto;
+}
+
+/* Equation styling */
+.project-content .equation {
+    margin: 1.5em 0;
+}
+
+.main-content {
+    padding: 1rem;
+}
+
+/* Space after headings */
+.project-content h1 + p,
+.project-content h2 + p,
+.project-content h3 + p,
+.project-content h4 + p {
+    margin-top: 0.5em;
+}
+
+/* Section spacing */
+.project-detail section {
+    margin-bottom: 2em;
+}
