@@ -297,8 +297,7 @@
                       <p>
                         By leveraging geometric principles, the TOW metric provides a nuanced understanding of the spatial dynamics that influence and predict tackling outcomes in the game. To gain some insight into the overall distribution of the TOW ratio for the entire tracking dataset, I crafted a 2D density plot of tacklers with a non-zero TOW Ratio to illuminate how consistent tacklers are at maintaining a close proximity to their target.
                     </p>
-                    
-                    <div class="image-container">
+                      <div class="project-image-container">
                         <img src="../assets/images/nfl/TOW_Ratio_Density_Plot.png" width="600" height="400" alt="TOW Ratio Density Plot">
                     </div>
                     
@@ -321,8 +320,7 @@
                     <p>
                         A good way to visualize the data phenomena is by looking at the tackles dataframe, sorted by playId. Notice recycled values in the playId column:
                     </p>
-                    
-                    <div class="image-container">
+                      <div class="project-image-container">
                         <img src="../assets/images/nfl/Tackles_Dataframe_Example.png" width="600" height="400" alt="Tackles Dataframe Example">
                     </div>
 
@@ -332,8 +330,7 @@
                     <p>
                         Owing to the intrinsic capabilities of a neural network, particularly its adeptness in detecting nuanced variations, the direction and orientation of each player were pivotal in enabling the model to discern and adapt to subtle shifts. These shifts are essential for the model to recognize and adhere to an emergent pattern, as the features exhibit significant, yet controlled, variation across successive frames. This variation is not arbitrary, but rather demonstrative of a tackler pursuing their target with precision. The controlled variability within these features provides the model with critical data points, allowing it to effectively learn and predict the dynamics of a tackler's movement in relation to their target. Visualizing the distribution of each player's orientation and direction in the EDA phase, and noticing the non-random variation, is what gave rise to the idea of focusing on this specific concept in parallel with the tackle opportunity window.
                     </p>
-                    
-                    <div class="image-container">
+                      <div class="project-image-container">
                         <img src="../assets/images/nfl/Polar_Histogram.png" width="600" height="600" alt="Polar Histogram">
                     </div>
                     
@@ -348,12 +345,11 @@
                     <p>
                         To provide a deeper understanding of how this model operates in practice, consider the following play as an illustrative example. The yellow radius around the ball illustrates the TOW threshold while the black radius around the defenders represents their respective tackle probability density. Notice how the densities for Tyrann Mathieu and Marshon Lattimore fluctuate, influenced by their orientation and distance to the ball carrier. These two factors are critical. As soon as the TOW threshold is breached, their probability densities spike.
                     </p>
-                    
-                    <div class="image-container">
+                      <div class="project-image-container">
                         <img src="../assets/images/nfl/Marshon_and_Tyrann.png" width="800" height="100" class="player-image" alt="Marshon and Tyrann">
                     </div>
                     
-                    <div class="image-container">
+                    <div class="project-image-container">
                         <img src="../assets/images/nfl/TOW_Animation.gif" width="800" height="400" alt="TOW Animation">
                     </div>
                     
@@ -361,12 +357,11 @@
                     <p>
                         Defenders who can maintain a consistent tackle opportunity window by adjusting their orientation and acceleration on a moment's notice can double or triple their chances of securing a tackle. This is due to the fast-paced environment of the NFL and how split second decisions determine the outcome of a play. The following graph illustrates this concept by analyzing how Tyrann Mathieu and Marshon Lattimore's probabilities fluctuate as their orientation and distance to the ball carrier change.
                     </p>
-                    
-                    <div class="image-container">
+                      <div class="project-image-container">
                         <img src="../assets/images/nfl/Marshon_and_Tyrann.png" width="800" height="100" class="player-image" alt="Marshon and Tyrann">
                     </div>
                     
-                    <div class="image-container">
+                    <div class="project-image-container">
                         <img src="../assets/images/nfl/TOW_Plot_Animation.gif" width="800" height="400" alt="TOW Plot Animation">
                     </div>
                     
@@ -374,12 +369,11 @@
                     <p>
                         The following play by Yetur Gross-Matos, an outside linebacker for the Carolina Panthers, illustrates how an angle of pursuit is invaluable in tackling a ball carrier that is already on the run at full speed. His ability to track, accelerate, and properly angle himself, resulting in a crucial tackle, exemplifies his effort in not giving up on the play.
                     </p>
-                    
-                    <div class="image-container">
+                      <div class="project-image-container">
                         <img src="../assets/images/nfl/Gross_Matos.png" width="600" height="100" class="player-image" alt="Gross-Matos">
                     </div>
                     
-                    <div class="image-container">
+                    <div class="project-image-container">
                         <img src="../assets/images/nfl/Angle_of_Pursuit.gif" width="800" height="400" alt="Angle of Pursuit Animation">
                     </div>
 
@@ -387,16 +381,15 @@
                     <p>
                         The tackle opportunity window excels at demonstrating how efficient defenders are at tracking and maintaining a consistent proximity to their respective target. This parameter, however, necessitates contextual interpretation, as the positional roles of players inherently present divergent scopes for target tracking, contingent upon their spatial deployment and the dynamic opposition presented by offensive counterparts. This results in some players receiving more resistance than others. Therefore, I have developed a tripartite ranking system, categorizing defensive players' tracking capabilities in accordance with their positional classifications.
                     </p>
-                    
-                    <div class="image-container">
+                      <div class="project-image-container">
                         <img src="../assets/images/nfl/DL_Rankings.png" width="800" height="600" class="rankings-image" alt="DL Rankings">
                     </div>
                     
-                    <div class="image-container">
+                    <div class="project-image-container">
                         <img src="../assets/images/nfl/Linebacker_Rankings.png" width="800" height="600" class="rankings-image" alt="Linebacker Rankings">
                     </div>
                     
-                    <div class="image-container">
+                    <div class="project-image-container">
                         <img src="../assets/images/nfl/DB_Rankings.png" width="800" height="600" class="rankings-image" alt="DB Rankings">
                     </div>
 

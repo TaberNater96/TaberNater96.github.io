@@ -25,10 +25,64 @@
     box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
+/* ===== PROJECT PAGE IMAGE CONTAINERS ===== */
+
+/* Main project image container - clean styling without borders */
+.project-detail .project-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em auto;
+    width: 100%;
+    text-align: center;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.project-detail .project-image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;
+}
+
+.project-detail .project-image-container img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific styling for player name images */
+.project-detail .project-image-container .player-image {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Specific styling for ranking images */
+.project-detail .project-image-container .rankings-image {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Keep the original image-container for backward compatibility if needed */
 .project-content .image-container {
     text-align: center;
     margin: 2em 0;
+    background: none;
+    border: none;
+    padding: 0;
 }
+
+/* ===== PROJECT CONTENT STYLING ===== */
 
 .project-content strong {
     color: var(--accent-color);
@@ -49,17 +103,6 @@
 .kaggle-button {
     display: inline-block;
     margin: 1em 0;
-}
-
-.project-content .player-image {
-    max-width: 800px;
-    height: auto;
-    margin: 1em auto;
-}
-
-.project-content .rankings-image {
-    max-width: 800px;
-    height: auto;
 }
 
 /* Center content */
@@ -88,4 +131,27 @@
 /* Section spacing */
 .project-detail section {
     margin-bottom: 2em;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 768px) {
+    .project-detail .project-image-container {
+        margin: 1.5em auto;
+    }
+    
+    .project-detail .project-image-container .player-image,
+    .project-detail .project-image-container .rankings-image {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 576px) {
+    .project-detail .project-image-container {
+        margin: 1em auto;
+    }
+    
+    .project-detail .project-image-container img {
+        border-radius: 5px;
+    }
 }
