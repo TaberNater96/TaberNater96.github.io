@@ -1,0 +1,158 @@
+/* About Page Styles */
+.about-page .site-header {
+    left: 0;
+    width: 100%;
+}
+
+.about-page .site-footer {
+    margin-left: 0;
+    width: 100%;
+}
+
+.about-section {
+    padding: 6rem 0;
+    background: var(--bg-gradient);
+    min-height: calc(100vh - var(--header-height));
+    padding-top: calc(var(--header-height) + 40px);
+}
+
+.about-container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.about-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.about-content {
+    background: linear-gradient(135deg, var(--primary-color), var(--light-color));
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--dark-color);
+    margin-top: 2rem;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+}
+
+.about-text p:first-child::first-letter {
+    font-size: 3.5rem;
+    font-weight: bold;
+    float: left;
+    line-height: 3rem;
+    margin: 0.1rem 0.5rem 0 0;
+    color: var(--dark-color);
+    font-family: var(--heading-font);
+}
+
+.highlight {
+    color: var(--dark-color);
+    font-weight: 700;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.stat-item {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: var(--dark-color);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.stat-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.stat-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--light-color);
+    margin-bottom: 1rem;
+}
+
+.stat-desc {
+    font-size: 0.9rem;
+    color: var(--light-color);
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        padding: 4rem 0;
+    }
+    
+    .about-container {
+        max-width: 95%;
+        padding: 0 1rem;
+    }
+    
+    .about-content {
+        padding: 2rem;
+    }
+    
+    .about-title {
+        font-size: 2.5rem;
+    }
+    
+    .about-text {
+        font-size: 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .stat-item {
+        padding: 1.5rem 1rem;
+    }
+    
+    .stat-icon {
+        font-size: 2.5rem;
+    }
+    
+    .stat-title {
+        font-size: 1.1rem;
+    }
+}
