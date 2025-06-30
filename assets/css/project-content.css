@@ -6,6 +6,14 @@
     text-align: left;
 }
 
+/* Ensure all h1 headers in project sections are black */
+.project-detail h1 {
+    color: var(--dark-color);
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    text-align: center;
+}
+
 .project-content h2 {
     margin-top: 1.5em;
     margin-bottom: 0.8em;
