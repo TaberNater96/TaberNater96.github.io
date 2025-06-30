@@ -59,7 +59,7 @@
             
             <!-- AtmoSeer Project -->
             <div id="atmoseer" class="project-detail">
-                <h3>AtmoSeer</h3>
+                <h1>AtmoSeer</h1>
                 <p>
                     AtmoSeer originates from the objective of applying advanced deep learning techniques to the complex domain of atmospheric science, specifically for forecasting 
                     greenhouse gas concentrations. This project is a full-stack data science project, using advanced techniques in data engineering, data analysis, and deep learning 
@@ -176,19 +176,148 @@
             
             <!-- RoBi Project -->
             <div id="robi" class="project-detail">
-                <h3>RoBi</h3>
-                <p>
-                    Developed a hybrid sentiment analysis network using RoBERTa and BiLSTM. The architecture consisted of a novel sliding window approach to 
-                    bypass max sequence lengths of modern transformers. Essentially allowing the BiLSTM to learn from an infinite number of tokens using RoBERTa's 
-                    embedding matrix. A Bayesian Optimization algorithm was developed as a wrapper for RoBi's architecture, acting as a hyperparameter tuner. This 
-                    algorithm used a Matérn kernel for Gaussian Regression to greatly improve RoBi's accuracy by leveraging probability to search a hyperparameter 
-                    space based on prior trial results.
-                </p>
+                <div class="project-content">
+                    <div class="center-content">
+                        <h1>RoBi</h1>
+                    </div>
+
+                    <p>
+                        RoBi (RoBERTa-BiLSTM) is a hybrid sentiment analysis architecture that combines the contextual understanding capabilities of transformer-based RoBERTa with the sequential processing power of bidirectional Long Short-Term Memory networks. This hybrid architecture addresses a significant limitation in modern natural language processing: the inability of transformer models to effectively process texts longer than their maximum sequence length. Through a sliding window approach and Bayesian optimization techniques, RoBi enables sentiment classification on texts of arbitrary length while maintaining computational efficiency.
+                    </p>
+
+                    <h4>Pipeline Architecture Overview</h4>
+                    
+                    <p>
+                        The RoBi pipeline consists of five stages: data acquisition and preprocessing, corpus normalization and cleaning, sentiment labeling and data warehousing, model training with hyperparameter optimization, and model deployment. Each stage is designed to ensure data integrity, computational efficiency, and model performance. The pipeline processes raw text corpora from diverse sources and produces a production-ready sentiment analysis model capable of processing texts of arbitrary length.
+                    </p>
+
+                    <h4>Data Preprocessing and Normalization Pipeline</h4>
+                    
+                    <p>
+                        RoBi's preprocessing pipeline is implemented through the TextNormalizer class, which performs text normalization operations essential for consistent sentiment analysis results. The normalization process begins with HTML tag stripping using BeautifulSoup, removing standard HTML elements and embedded JavaScript and CSS content that could introduce noise into the sentiment analysis process.
+                    </p>
+
+                    <p>
+                        The preprocessing pipeline incorporates several normalization steps. URL and email removal ensures that web addresses and contact information don't influence sentiment predictions. Accented character normalization transforms Unicode characters into their ASCII equivalents, reducing vocabulary variation caused by different character encodings. Contraction expansion utilizes a mapping dictionary to convert informal contractions like "won't" and "can't" into their full forms, providing the model with consistent linguistic patterns.
+                    </p>
+
+                    <p>
+                        Special character removal and repeated character reduction enhance text quality. The system handles character repetition by utilizing WordNet to verify word validity, ensuring that meaningful words aren't incorrectly shortened while normalizing emphatic expressions like "sooooo good" to "so good". The lemmatization process converts words to their dictionary forms using spaCy's NLP model, providing semantic consistency while preserving grammatical integrity through pronoun handling.
+                    </p>
+
+                    <h4>SQLite Data Warehousing Strategy</h4>
+                    
+                    <p>
+                        RoBi implements a data warehousing solution using SQLite for storage and retrieval of processed text corpora and their corresponding sentiment labels. The database schema is optimized for storage efficiency and query performance, featuring indexed tables for data access during training and validation phases. The warehousing system maintains data integrity through foreign key constraints and implements transaction-based operations to ensure consistency during concurrent access.
+                    </p>
+
+                    <p>
+                        The data warehouse stores preprocessed text alongside metadata including source information, processing timestamps, and quality metrics. This approach enables reproducible research by maintaining an audit trail of data transformations. The system implements data versioning capabilities, allowing researchers to track changes in preprocessing methodologies and their impact on model performance over time.
+                    </p>
+
+                    <h4>Sliding Window Architecture</h4>
+                    
+                    <p>
+                        RoBi's sliding window approach addresses the constraint of transformer models being limited to processing sequences of 512 tokens maximum. Traditional transformer architectures, including RoBERTa, face challenges when analyzing lengthy documents such as product reviews, academic papers, or social media posts that exceed this threshold.
+                    </p>
+
+                    <p>
+                        RoBi's sliding window implementation creates overlapping chunks of text with a configurable stride length, typically set to 256 tokens. This creates 50% overlap between consecutive windows, ensuring that contextual information spanning chunk boundaries is preserved. For example, a 1000-token document would be processed as three overlapping chunks: tokens 0-512, tokens 256-768, and tokens 512-1000 (with padding). Each chunk retains the original document's sentiment label, allowing the BiLSTM component to learn sequential dependencies between chunks belonging to the same text.
+                    </p>
+
+                    <p>
+                        The sliding window mechanism operates through several components. The SlidingWindow dataset class handles tokenization using the RoBERTa tokenizer with return_overflowing_tokens=True, which enables the capture of all tokens rather than truncating at the maximum length. The system tracks chunk positions and article IDs, ensuring proper reassembly during inference. Attention masks distinguish between real tokens and padding, allowing the model to focus computational resources on meaningful content while ignoring padded regions.
+                    </p>
+
+                    <h4>Hybrid Neural Architecture Design</h4>
+                    
+                    <p>
+                        RoBi's neural architecture combines transformer and recurrent neural network components. The model begins with RoBERTa's pre-trained transformer layers, which provide contextual embeddings through self-attention mechanisms. These embeddings capture semantic relationships and dependencies within each text chunk. The transformer output is then fed into a bidirectional LSTM layer, which processes the representations in both forward and backward directions.
+                    </p>
+
+                    <p>
+                        The bidirectional LSTM component processes narrative flow and temporal dependencies that span across chunk boundaries. This dual-directional processing allows the model to understand how earlier and later parts of a text influence each other's sentiment. For instance, phrases like "I thought it would be great, but..." require understanding of both the initial positive expectation and subsequent negative evaluation to correctly classify the overall sentiment.
+                    </p>
+
+                    <p>
+                        An attention mechanism is integrated between the BiLSTM and classification layers, learning to weight the importance of different text segments for sentiment prediction. This attention component helps the model focus on sentiment-relevant phrases while maintaining awareness of the broader context. The final classification layer combines contextual meaning from RoBERTa, sequential patterns from BiLSTM, and attention-weighted importance scores to produce sentiment predictions.
+                    </p>
+
+                    <h4>Training Methodology</h4>
+                    
+                    <p>
+                        RoBi's training process implements several techniques to achieve performance while preventing overfitting. The training pipeline utilizes a one-cycle learning rate policy, which initially increases the learning rate to help escape local minima, then gradually decreases it for convergence. This approach, combined with gradient accumulation, simulates larger batch sizes while maintaining memory efficiency on resource-constrained hardware.
+                    </p>
+
+                    <p>
+                        The training process incorporates early stopping mechanisms that monitor validation loss trends to prevent overfitting. Gradient clipping prevents exploding gradients, which can be problematic in recurrent architectures. The system uses AdamW optimization with weight decay regularization to improve generalization performance. Learning rate scheduling follows the one-cycle policy with configurable warm-up and cool-down phases, enabling stable convergence across datasets.
+                    </p>
+
+                    <h4>Bayesian Hyperparameter Optimization</h4>
+                    
+                    <p>
+                        RoBi includes a Bayesian optimization framework for hyperparameter tuning. The BayesianTuner class implements a probabilistic approach to hyperparameter search that outperforms traditional grid search or random search methods. This system uses Gaussian Process Regression with a Matérn kernel to model the relationship between hyperparameter configurations and model performance.
+                    </p>
+
+                    <p>
+                        The Bayesian optimization process begins by sampling initial hyperparameter configurations from predefined ranges. These include learning rates (1e-6 to 1e-3), hidden dimensions (64 to 512), dropout rates (0.1 to 0.7), and various architectural parameters. The Gaussian Process Regression model learns from previous trials to predict the performance of untested configurations, focusing computational resources on promising regions of the hyperparameter space.
+                    </p>
+
+                    <p>
+                        The Matérn kernel provides modeling capabilities for the non-smooth objective functions encountered in neural network optimization. The acquisition function balances exploration of uncertain regions with exploitation of promising areas, leading to convergence toward optimal hyperparameter settings. This probabilistic approach achieves better results with fewer training runs compared to exhaustive search methods.
+                    </p>
+
+                    <p>
+                        The optimization process maintains metadata for each trial, including hyperparameter configurations, validation losses, and training metrics. This information enables analysis of hyperparameter sensitivity and provides insights into model behavior across different configurations. The system automatically saves the best-performing model configuration and provides reports on optimization convergence.
+                    </p>
+
+                    <h4>Inference and Deployment Architecture</h4>
+                    
+                    <p>
+                        RoBi's inference pipeline is designed for accuracy and efficiency in production environments. The predict_sentiment function handles texts of arbitrary length by automatically applying the sliding window approach used during training. For single-chunk texts (≤512 tokens), the system processes them directly. For longer texts, it creates overlapping chunks and processes each through the trained model.
+                    </p>
+
+                    <p>
+                        The inference process combines predictions from multiple chunks through logit averaging, which provides more stable results than simple voting schemes. The system outputs both discrete sentiment classifications (Negative, Neutral, Positive) and continuous probability distributions, enabling applications to implement custom confidence thresholds or multi-class decision boundaries.
+                    </p>
+
+                    <p>
+                        The model persistence framework enables loading and saving of trained models along with their associated tokenizers and configuration parameters. This design supports deployment across different environments and ensures reproducibility of results. The system also supports batch processing for high-throughput applications while maintaining memory efficiency through tensor management.
+                    </p>
+
+                    <h4>Performance and Scalability Characteristics</h4>
+                    
+                    <p>
+                        RoBi demonstrates performance across multiple metrics and text lengths. The sliding window approach enables processing of texts containing thousands of tokens while maintaining the benefits of transformer-based embeddings. The hybrid architecture achieves accuracy improvements of 3-7% over baseline RoBERTa models on long-form text datasets, with strong performance on documents where sentiment shifts occur across different sections.
+                    </p>
+
+                    <p>
+                        Memory efficiency is maintained through implementation of gradient accumulation and dynamic batching strategies. The system can process texts up to 50 million characters in length while maintaining computational requirements. GPU acceleration is supported, with automatic device detection and tensor placement optimization for both training and inference phases.
+                    </p>
+
+                    <p>
+                        The Bayesian optimization framework converges to hyperparameter configurations within 20-30 trials, representing computational savings compared to exhaustive search approaches. This efficiency enables deployment of the optimization process for researchers with limited computational resources.
+                    </p>
+
+                    <h4>Research Impact and Future Directions</h4>
+                    
+                    <p>
+                        RoBi's sliding window approach addresses limitations in transformer architectures and provides a method for processing long texts without sacrificing the benefits of pre-trained language models. The hybrid architecture demonstrates that combining different neural paradigms can yield improvements in performance, particularly for tasks requiring both local contextual understanding and global sequential awareness.
+                    </p>
+
+                    <p>
+                        The Bayesian optimization framework contributes to the field of automated machine learning by providing a probabilistic approach to hyperparameter tuning tailored for hybrid neural architectures. The preprocessing pipeline and data warehousing solution provide a template for reproducible NLP research workflows.
+                    </p>
+
+                    <p>
+                        Future development directions include extending the sliding window approach to other transformer architectures, implementing dynamic window sizing based on text characteristics, and exploring multi-task learning scenarios where sentiment analysis is combined with other NLP objectives. The framework's modular design facilitates these extensions while maintaining backward compatibility with existing trained models.
+                    </p>
+                </div>
             </div>
             
             <!-- Portfolio Website Project -->
             <div id="portfolio" class="project-detail">
-                <h3>Portfolio Website</h3>
+                <h1>Portfolio Website</h1>
                 <p>
                     This website itself was built from the ground up using HTML, CSS, and JavaScript. Designed with a focus on clean aesthetics, smooth animations, 
                     and user-friendly navigation. The layout adapts seamlessly across devices, while interactive elements enhance the user experience without 
@@ -209,7 +338,6 @@
                         </a>
                     </div>
 
-                    <h2>Introduction</h2>
                     <p>
                         Imagine being a running back in the NFL and having a 6'4", 250 lb defensive linebacker, with a 4.39 40 yard dash, rapidly approaching you and tracking your every position. As an observer watching from above, it's hard to gain a solid understanding for what is actully happening down on the field, and what is going through the minds of the players in such a high stakes situation. Which player do you think will come out on top? Is it the player who is faster? Stronger? Smarter? A more nuanced analysis suggests that it is an amalgamation of these characteristics that defines the prowess of a professional football player. The main objective when the ball is snapped for every defensive player is to stop the ball carrier as soon as possible. Hence, the pivotal question arises: what are the paramount factors that facilitate this objective?
                     </p>

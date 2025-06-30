@@ -1,14 +1,37 @@
 /* Project Content Styling for Tackle Opportunity Window */
-.project-content h1, .project-content h2 {
+.project-content h1 {
     margin-top: 1.5em;
     margin-bottom: 0.8em;
     color: var(--dark-color);
+    text-align: left;
+}
+
+.project-content h2 {
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    color: var(--dark-color);
+    text-align: center;
+}
+
+/* Special styling for NFL project title */
+.project-content .center-content h1 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+/* Special styling for RoBi project h4 headers - center them */
+#robi .project-content h4 {
+    text-align: center;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
 }
 
 .project-content h4 {
     margin-top: 1.2em;
     color: var(--dark-color);
     font-weight: 600;
+    text-align: left;
 }
 
 .project-content p {
@@ -102,13 +125,13 @@
 
 .kaggle-button {
     display: inline-block;
-    margin: 1em 0;
+    margin: 0.5em 0;
 }
 
-/* Center content */
+/* Center content - but allow h1 to be left aligned */
 .center-content {
-    text-align: center;
-    margin: 1em auto;
+    text-align: left;
+    margin: 0.5em auto;
 }
 
 /* Equation styling */
